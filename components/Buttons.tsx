@@ -4,15 +4,16 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 type Props= {
     label: string,
     theme?: 'primary',
+    onPress?: () => void,
 }
 
-export default function Buttons({label, theme}: Props){
+export default function Buttons({label, theme, onPress}: Props){
     if(theme === 'primary'){
     return(
          <View style={[styles.buttoncontainer, 
             {borderWidth: 2, borderColor: '#ffff', backgroundColor:'#fff', borderRadius: 18}
          ]}>
-            <Pressable style={[styles.button, {backgroundColor: '#ffff' }]} onPress={() => alert('Yohoo boy')}>
+            <Pressable style={[styles.button, {backgroundColor: '#ffff' }]} onPress={onPress}>
             <FontAwesome name="picture-o" size={18} color="#25292e" style={styles.buttonIcon} />
             <Text style={[styles.buttontext, {color:'#25292e'}]}>{label}</Text>
             </Pressable>
@@ -21,7 +22,7 @@ export default function Buttons({label, theme}: Props){
 
     return (
         <View style={styles.buttoncontainer}>
-            <Pressable style={styles.button} onPress={() => alert('Yohoo boy')}>
+            <Pressable style={styles.button} onPress={onPress}>
             <Text style={styles.buttontext}>{label}</Text>
             </Pressable>
         </View>

@@ -2,12 +2,12 @@ import { Image } from 'expo-image'
 import { StyleSheet } from 'react-native'
 
 type Props = {
-    ImageValue: string,
+    ImageSource: string,
 }
 
-export default function ImageViewer({ImageValue} : Props){
+export default function ImageViewer({ImageSource} : Props){
     return (
-        <Image style={styles.image} source={ImageValue}/>
+        <Image style={styles.image} source={ImageSource}/>
     )
 }
 
